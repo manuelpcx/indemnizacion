@@ -1,0 +1,32 @@
+puts "Tu nombre es: "
+nam = gets.chomp
+puts "Tu sueldo es: "
+sueld = gets.chomp.to_i
+puts "Cuanto tiempo llevas trabajando (en meses)"
+mes = gets.chomp
+
+
+class Persona
+	def initialize(name, sueldo, meses)
+		@name = name
+		@sueldo = sueldo
+		@meses = meses.to_i
+	end
+
+	def tiempo_trabajado
+		@años = @meses/12.to_f
+		@años = @años.round(0)
+	end
+	def pago
+		if @años >= 1
+			@sueldo = @sueldo * @años
+			print " #{@name} tu sueldo final es de $#{@sueldo}"
+		else
+			puts "No Puedes resivir indemnizacion"
+		end
+	end
+end
+
+jose = Persona.new(nam,sueld, mes)
+jose.tiempo_trabajado
+jose.pago
